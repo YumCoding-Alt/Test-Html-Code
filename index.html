@@ -1,57 +1,134 @@
+
 <!DOCTYPE html>
-<html lang="vi">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CMC</title>
-    <style>
-        body { font-family: Arial, sans-serif; background-color: #f0f0f0; margin: 0; padding: 0; }
-        header { background: #3cba54; color: white; padding: 20px; text-align: center; }
-        nav { margin: 15px 0; }
-        nav a { margin: 0 15px; color: white; text-decoration: none; }
-        .content { padding: 20px; }
-        footer { text-align: center; padding: 10px; background: #333; color: white; position: absolute; width: 100%; bottom: 0; }
-    </style>
+<!-- Tên website| ชื่อเว็บไซต์ -->
+<title>CMC Server</title>
+<!-- Ảnh website| ไอคอนเว็บไซต์ -->
+<!-- href="https://api.mcsrvstat.us/icon/ip-server-you > -->
+<!-- href="https://api.mcsrvstat.us/icon/ใส่ไอพีเซิร์ฟเวอร์ > -->
+<link rel="icon" href="https://api.mcsrvstat.us/icon/hypixel.net">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="./styles.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<script src="https://kit.fontawesome.com/e198ddcfbb.js" crossorigin="anonymous"></script>
+<script src="http://code.jquery.com/jquery-3.4.1.js"></script>
+<script type="text/javascript">
+
+      /* If you not understand, do not fix | หากไม่เข้าใจ ไม่แนะนำให้แก้ไข */
+  $(document).ready(function(){
+    $('.menu').click(function(){
+      $('.button-box').toggleClass('active');
+    })
+  })
+
+      /* If you not understand, do not fix | หากไม่เข้าใจ ไม่แนะนำให้แก้ไข */
+  function myFunction() {
+    alert("Copy thành công| Join ngay,tôi đang đợi bạn");
+  }
+
+      /* Bạn không đồng ý tôi không fix| หากไม่เข้าใจ ไม่แนะนำให้แก้ไข */
+  function copyip(element) {
+    var $temp = $("<input>");
+    $("body").append($temp);
+    $temp.val($(element).text()).select();
+    document.execCommand("copy");
+    $temp.remove();
+  }
+        /* Nah. | สำหรับช่องนี้แก้ไขเฉพาะ ip */
+	 /* example | ตัวอย่าง  edit > (let url = "hypixel.net";) to (let url = "ip address";) */
+  let url = "hypixel.net";
+  $(document).ready(() => {
+      $.getJSON("https://api.mcsrvstat.us/1/" + url, (status) => {
+          if (status.debug.ping) {
+              $("#motd").append(status.motd.raw);
+              $("#status").append("online");
+              $("#version").append(status.version);
+              $("#players_num").append(status.players.online + "/" + status.players.max)
+              $.each(status.players.list, function (index, player) {
+                  $("#players_list").append("<li>" + player + "</li>")
+              });
+          } else {
+              $("#motd").append(status.hostname);
+              $("#status").append("offline");
+              $("#version").hide();
+              $("#players_num").hide();
+          }
+          $("body").fadeIn(2000);
+      });
+  });
+
+</script>
 </head>
 <body>
-    <header>
-        <h1>Chào mừng tới với CMC server</h1>
-        <nav>
-            <a href="#about">Thông tin</a>
-            <a href="#rules">Luật</a>
-            <a href="#join">Cách vào</a>
-        </nav>
-    </header>
-    <div class="content">
-        <section id="about">
-            <h2>Thông tin server</h2>
-            <p>Nope:)</p>
-        </section>
-        <section id="rules">
-            <h2>Luật server</h2>
-            <ul>
-                <li>1. Quy định chung:</li>
-                <li>🗣️ Tôn trọng mọi người: Cư xử lịch sự, không xúc phạm hoặc đe dọa người khác.</li>
-                <li>🚫 Không gian lận: Không sử dụng phần mềm gian lận, hack, mod không được phép, hoặc bất kỳ công cụ nào mang lại lợi thế không công bằng.</li>
-                <li>🏚️ Không phá hoại: Không phá hoại công trình của người khác hoặc gây thiệt hại cho tài sản chung mà không có sự đồng ý.</li>
-                <li>📵 Không spam: Không gửi tin nhắn liên tục, làm phiền người chơi khác qua trò chuyện công khai hay riêng tư.</li>
-                <li>2. Quy định về xây dựng:</li>
-                <li>🏗️ Không xây dựng công trình xúc phạm: Tránh xây dựng bất kỳ thứ gì có tính chất phân biệt chủng tộc, tôn giáo, chính trị, hoặc gây xúc phạm.</li>
-                <li>3.Quy định về PvP (Player vs. Player):</li>
-                <li>⚔️ Chỉ PvP khi có sự đồng ý: Người chơi chỉ được phép chiến đấu với nhau nếu cả hai bên đều đồng ý tham gia PvP.</li>
-                <li>🛑 Không giết người vô lý: Tránh tấn công hoặc tiêu diệt người chơi không có lý do chính đáng, đặc biệt trong khu vực không PvP.</li>
-                <li>4.Quy định về giao dịch:</li>
-                <li>💰 Giao dịch công bằng: Khi trao đổi vật phẩm giữa các người chơi, cần thực hiện giao dịch minh bạch và công bằng. Cẩn thận với scam lừa đảo nếu phát hiện báo ngay cho admin để xử lý </li>
-                <li>Luật khác sẽ cập nhật sau
-           </ul>
-        </section>
-        <section id="join">
-            <h2>Cách vào</h2>
-            <p>Bạn cần Minecraft Java hoặc PE: <strong>Vào discord để lấy ip:https://discord.gg/fEMuwmxT</strong></p>
-        </section>
-    </div>
-    <footer>
-        
-    </footer>
+
+<!-- Navigation bar | แถบนำทาง -->
+<div class="header">
+  <div class="sv-name-and-menu">
+    <a class="server-name" href="./index.html">server name</a>
+    <a class="toggle menu" style="color:#fff;">MENU</a>
+  </div>
+
+  <div class="button-box">
+    <ul>
+      <li><a href="#Set-link-ตั้งค่าลิงก์">webshop</a></li>
+      <li><a href="#Set-link-ตั้งค่าลิงก์">discord</a></li>
+      <li><a href="#Set-link-ตั้งค่าลิงก์">fb page</a></li>
+      <li><a href="#Set-link-ตั้งค่าลิงก์">fb group</a></li>
+    </ul>
+  </div>
+</div>
+
+<!-- background | พื้นหลัง, ภาพพื้นหลัง -->
+<div class="bg">
+
+  <div class="container">
+   <div class="row">
+     <div class="col-sm-12 wellcome">
+       <!-- Server icon | ไอคอน เซิร์ฟเวอร์ -->
+         <div class="icon">
+           <img src="https://api.mcsrvstat.us/icon/hypixel.net" alt="Erros">
+         </div>
+
+       <!-- Logo | โลโก้ -->
+         <div class="logo">
+         <img src="./img/logo.png" alt="Erros">
+         </div>
+
+         <!-- Thông tin và trạng thái| ข้อมูลและสถานะ -->
+         <div class="info-and-status">
+           <h1>CMC server <span id="status"></span>!</h1> <br>
+           <h1>Join ngay</h1> <br>
+           <span id="players_num">Người chơi: </span> <p id="version">Phiên bản: </p>
+         </div>
+
+         <!-- server ip | ip ของเซิร์ฟเวอร์ -->
+       <!-- edit <p id="p1">in1.plutonodes.net:25032</p> to <p id="p1">Tên servrr</p> -->
+       <!-- แก้ไข <p id="p1">in1.plutonodes.net:25032</p> เป็น <p id="p1">ชื่อเซิร์ฟเวอร์</p> -->
+         <div class="server-ip">
+         <img src="https://api.mcsrvstat.us/icon/hypixel.net" alt="Erros">
+         <p id="p1">mc-server-name.com</p>
+         <button class="btn-computer" onclick="copyip('#p1');myFunction();"><i class="far fa-copy"></i></button>
+         <button class="btn-mobile" onclick="copyip('#p1');myFunction();"><i class="far fa-copy"></i></button>
+         </div>
+
+         <hr>
+         <p>Server CMC được thành lập vào ngày 4/9/2024 bởi mengFGVN là một server SMP website được làm bởi LoppiAnChui 
+         <a href='" target="_blank">...</a></p>
+ 
+   </div>
+  </div>
+<!-- Không chỉnh sửa nếu chưa có sự đồng ý của dev. -->
+<!-- หากคุณมีมโนธรรม คุณไม่ควรแก้ไขหรือลบชื่อผู้พัฒนา -->
+<footer>
+  <div class="center-s-d">
+    <div class="skills">develop skills only <a href="https://bit.ly/3bTSktw" target="_blank">(free download)</a></div>
+    <div class="designed">Designed bởi: <a href="https://www.facebook.com/profile.php?id=61564873682498&mibextid=ZbWKwL" target="_blank">anuwat avera</a></div>
+  </div>
+</footer>
+
+</div>
+
 </body>
 </html>
