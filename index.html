@@ -1,57 +1,35 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CMC</title>
-    <style>
-        body { font-family: Arial, sans-serif; background-color: #f0f0f0; margin: 0; padding: 0; }
-        header { background: #3cba54; color: white; padding: 20px; text-align: center; }
-        nav { margin: 15px 0; }
-        nav a { margin: 0 15px; color: white; text-decoration: none; }
-        .content { padding: 20px; }
-        footer { text-align: center; padding: 10px; background: #333; color: white; position: absolute; width: 100%; bottom: 0; }
-    </style>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>COUNT DOWN</title>
+  <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <header>
-        <h1>Chào mừng tới với CMC server</h1>
-        <nav>
-            <a href="#about">Thông tin</a>
-            <a href="#rules">Luật</a>
-            <a href="#join">Cách vào</a>
-        </nav>
-    </header>
-    <div class="content">
-        <section id="about">
-            <h2>Thông tin server</h2>
-            <p>Nope:)</p>
-        </section>
-        <section id="rules">
-            <h2>Luật server</h2>
-            <ul>
-                <li>1. Quy định chung:</li>
-                <li>🗣️ Tôn trọng mọi người: Cư xử lịch sự, không xúc phạm hoặc đe dọa người khác.</li>
-                <li>🚫 Không gian lận: Không sử dụng phần mềm gian lận, hack, mod không được phép, hoặc bất kỳ công cụ nào mang lại lợi thế không công bằng.</li>
-                <li>🏚️ Không phá hoại: Không phá hoại công trình của người khác hoặc gây thiệt hại cho tài sản chung mà không có sự đồng ý.</li>
-                <li>📵 Không spam: Không gửi tin nhắn liên tục, làm phiền người chơi khác qua trò chuyện công khai hay riêng tư.</li>
-                <li>2. Quy định về xây dựng:</li>
-                <li>🏗️ Không xây dựng công trình xúc phạm: Tránh xây dựng bất kỳ thứ gì có tính chất phân biệt chủng tộc, tôn giáo, chính trị, hoặc gây xúc phạm.</li>
-                <li>3.Quy định về PvP (Player vs. Player):</li>
-                <li>⚔️ Chỉ PvP khi có sự đồng ý: Người chơi chỉ được phép chiến đấu với nhau nếu cả hai bên đều đồng ý tham gia PvP.</li>
-                <li>🛑 Không giết người vô lý: Tránh tấn công hoặc tiêu diệt người chơi không có lý do chính đáng, đặc biệt trong khu vực không PvP.</li>
-                <li>4.Quy định về giao dịch:</li>
-                <li>💰 Giao dịch công bằng: Khi trao đổi vật phẩm giữa các người chơi, cần thực hiện giao dịch minh bạch và công bằng. Cẩn thận với scam lừa đảo nếu phát hiện báo ngay cho admin để xử lý </li>
-                <li>Luật khác sẽ cập nhật sau
-           </ul>
-        </section>
-        <section id="join">
-            <h2>Cách vào</h2>
-            <p>Bạn cần Minecraft Java hoặc PE: <strong>Vào discord để lấy ip:https://discord.gg/fEMuwmxT</strong></p>
-        </section>
+  <main>
+    <h1>Comming Soon</h1>
+    <div class="container">
+      <div class="counter-container">
+        <span id="days" class="counter">0</span>
+        <span>Ngày</span>
+      </div>
+      <div class="counter-container">
+        <span id="hours" class="counter">10</span>
+        <span>Giờ</span>
+      </div>
+      <div class="counter-container">
+        <span id="minutes" class="counter">7</span>
+        <span>Phút</span>
+      </div>
+      <div class="counter-container">
+        <span id="seconds" class="counter">50</span>
+        <span>Giây</span>
+      </div>
     </div>
-    <footer>
-        
-    </footer>
+  </main>
+  <script src="./script.js"></script>
+  <script src="./snow.js"></script>
 </body>
 </html>
